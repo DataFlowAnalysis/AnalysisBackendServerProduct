@@ -1,0 +1,40 @@
+name: Upload artifacts on release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+      
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 17
+      
+    - name: Verify with Maven
+      shell: bash
+      run: mvn clean verify
+
+    - name: Add artifacts to release
+      uses: softprops/action-gh-release@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        generate_release_notes: true
+        repository: DataFlowAnalysis/product
+        files: |
+          products/org.dataflowanalysis.product/target/deploy/Standalone-linux.gtk.x86_64.zip
+          products/org.dataflowanalysis.product/target/deploy/Standalone-macosx.cocoa.x86_64.zip
+          products/org.dataflowanalysis.product/target/deploy/Standalone-win32.win32.x86_64.zip
+
