@@ -157,7 +157,7 @@
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 			<repository location="https://dataflowanalysis.github.io/updatesite/nightly/analysis-backend-server/"/>
-			<unit id="org.dataflowanalysis.standalone.feature.feature.group" version="1.0.0.202504221114"/>
+			<unit id="org.dataflowanalysis.standalone.feature.feature.group" version="0.0.0"/>
 		</location>
 	</locations>
 </target>
