@@ -152,6 +152,5 @@
 			<unit id="org.dataflowanalysis.dfd.dataflowdiagram.feature.feature.group" version="0.0.0"/>
 			<unit id="org.dataflowanalysis.examplemodels.feature.feature.group" version="0.0.0"/>
 		</location>
-		<location path="C:\Users\Huell\Desktop\New folder\workspace\plugins" type="Directory"/>
 	</locations>
 </target>
